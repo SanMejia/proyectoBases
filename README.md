@@ -4,6 +4,6 @@ El presente repositorio es usado para manejar los archivos y la documentación d
 
 ## Integrantes
 
-### Jonathan
-### Juan David Delgado Rubiano
-### Santiago Mejia Martinez
+- Jonathan Pérez
+- Juan David Delgado Rubiano
+- Santiago Mejia Martinez
