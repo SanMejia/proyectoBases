@@ -1,1 +1,5 @@
-# proyectoBases
+# Proyecto bases de datos (NotThatEasyTaxi)
+
+El presente repositorio es usado para manejar los archivos y la documentación del proyecto.
+
+## Integrantes
