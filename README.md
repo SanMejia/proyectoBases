@@ -1,4 +1,4 @@
-# Proyecto bases de datos (NotThatEasyTaxi)
+# Proyecto bases de datos (Mande)
 
 El presente repositorio es usado para manejar los archivos y la documentación del proyecto.
 
