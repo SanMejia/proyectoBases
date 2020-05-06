@@ -1,6 +1,6 @@
 # Proyecto bases de datos (Mande)
 
-El presente repositorio es usado para manejar los archivos y la documentación del proyecto.
+El presente repositorio es usado para manejar los archivos del proyecto.
 
 ## Integrantes
 
