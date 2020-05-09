@@ -14,7 +14,7 @@ body {
 .mande-box {
   border-radius: 15px;
   width: 600px;
-  height: 670px;
+  height: 590px;
   background: url(../imagenes/fondo2.jpg)no-repeat center top;
   position: absolute;
   display: line-block;
@@ -33,6 +33,7 @@ body {
   color: #fff;
   font-size: 18px;
   border-radius: 20px;
+
 }
 
 .mande-box form {
@@ -40,29 +41,32 @@ body {
   top: -95px;
   border-radius: 20px;
   margin: 30px 30px;
-  padding: 10px 10px;
+  padding: 20px 20px;
   background: #000;
   border: 1px solid #fff;
   display: block;
 }
 
-textarea {
-  margin: 10px 10px;
+textarea [name="textarea"]{
   padding: 15px  15px;
   position: relative;
   left: 50px ;
   border: 2.5px solid red;
   display: block;
 }
+
+textarea [name="textarea2"]{
+  padding: 5px  5px;
+  position: relative;
+  left: 50px ;
+  border: 2.5px solid yellow;
+  display: block;
+}
 .categorias1{
   position: relative;
-  left: 30px;
+ 
 }
 .categorias2{
-  position: relative;
-  left: 30px;
-}
-.descripcion{
   position: relative;
   left: 30px;
 }
@@ -83,7 +87,7 @@ h1{
   position: relative;
   font-size: 20px;
   top: -20px;
-  left:35%;
+  left:30%;
 }
 
 
@@ -134,4 +138,9 @@ input[type="submit"]:hover {
   position: relative;
   left: 40px;
   top: -5px;
+}
+
+.AceptarLabor {
+  position: relative;
+  left: 40%;
 }
