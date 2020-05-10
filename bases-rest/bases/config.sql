@@ -24,7 +24,7 @@ insert into users (name, email) values ('juan', 'juan@putito.com'),('foxzi', 'fo
 	"perfil": "/casita",
 	"documento": "/casita2",
 	"direccion": "ST_GeomFromText('POINT(-0.1257 51.508)',4326)"
-	
+
 }
 
 {
@@ -36,5 +36,11 @@ insert into users (name, email) values ('juan', 'juan@putito.com'),('foxzi', 'fo
 	"mpago" : "credito",
 	"recibo" : "/lalalae",
 	"direccion": "ST_GeomFromText('POINT(-0.1257 51.508)',4326)"
-	
+
+}
+{
+	"telefono": 3106330913,
+	"labor": 1,
+	"unidad": 300000,
+	"descripcion": "Lo hare bn deveras"
 }

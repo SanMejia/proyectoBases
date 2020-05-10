@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+const bcrypt = require('bcryptjs');
 
 
 const pool = new Pool({
@@ -12,6 +13,7 @@ const pool = new Pool({
 const getUsers = async (req,res) => {
     const response = await pool.query('select * from users');
     res.status(200).json(response.rows);
+    console.log(response.rows);
 };
 
 const getCuenta = async (req,res) => {
@@ -29,7 +31,7 @@ const getCuentaByTel = async (req,res) => {
 const getUsersByID = async (req,res) => {
     const id = req.params.id;
     const response = await pool.query('select * from users where id = $1',[id]);
-    res.json(response.rows);
+    res.json(response.rows[0].id);
 }
 
 const createUsers= async (req,res) => {
@@ -49,20 +51,69 @@ const createUsers= async (req,res) => {
 const createCuentaTrabajador= async (req,res) => {
   const { telefono, pass, tipo, email, cc, name, estrellas, disponible, perfil, documento, direccion } = req.body;
   const sql = 'insert into trabajador values ($1, $2, $3, $4, $5, '+ direccion +' , $6, $7)';
-  const response1 = await pool.query('insert into cuenta values ($1, $2, $3, $4)',[telefono, pass, tipo, email]);
+  const salt = await bcrypt.genSalt(10);
+  const passcr = await bcrypt.hash(pass, salt);
+  const response1 = await pool.query('insert into cuenta values ($1, $2, $3, $4)',[telefono, passcr, tipo, email]);
   const response2 = await pool.query(sql ,
                   [cc, name, estrellas, disponible, telefono, perfil, documento]);
   const response3 = await pool.query('insert into cuenta_trabajador values ($1, $1)',[telefono]);
   console.log(response1);
-
+  //bcrypt.compare(pass,passbd);
   console.log(response2);
   console.log(response3);
   res.json({
       message: 'trabajador  agregado',
       body: {
-          user: {telefono, pass}
+          user: {telefono, passcr}
       }
   });
+
+};
+
+const postLogin= async (req,res) => {
+  const { user, pass } =req.body;
+
+  if(Number.isInteger(user)){
+    const response1 = await pool.query('select * from cuenta where telefono = $1',[user]);
+    if(response1.rowCount){
+      const password = response1.rows[0].password;
+      const valor = await bcrypt.compare(pass, password);
+      console.log(pass);
+      console.log(password);
+      console.log(valor);
+      if(valor){
+        res.send('exito');
+      }
+      else{
+        res.send('fracaso')
+      }
+    }
+    else{
+      res.send('no existe ese tel')
+    }
+
+  }
+
+  else{
+    const response1 = await pool.query('select * from cuenta where email = $1',[user]);
+    if(response1.rowCount){
+      const password = response1.rows[0].password;
+      const valor = await bcrypt.compare(pass, password);
+      console.log(pass);
+      console.log(password);
+      console.log(valor);
+      if(valor){
+        res.send('exito');
+      }
+      else{
+        res.send('fracaso')
+      }
+    }
+    else{
+      res.send('no existe ese email')
+    }
+
+  }
 
 };
 
@@ -126,5 +177,6 @@ module.exports = {
     getCuentaByTel,
     createCuentaTrabajador,
     createCuentaUsuario,
-    createLaborTrabajador
+    createLaborTrabajador,
+    postLogin
 }

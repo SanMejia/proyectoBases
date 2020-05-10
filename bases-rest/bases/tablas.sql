@@ -17,7 +17,7 @@ insert into users (name, email) values ('juan', 'juan@putito.com'),('foxzi', 'fo
 
 CREATE TABLE Cuenta (
 telefono decimal(10) NOT NULL ,
-password varchar(50) NOT NULL ,
+password TEXT NOT NULL ,
 tipo varchar(50) NOT NULL,
 email varchar(100) NOT NULL 
 );
