@@ -10,6 +10,8 @@ CREATE TABLE users(
 
 insert into users (name, email) values ('juan', 'juan@putito.com'),('foxzi', 'foxzi@fox.com');
 
+	//comando: npm i bcryptjs dotenv express express-session method-override passport passport-local pg
+
 //Json RegistrarTrabajador
 
 {
