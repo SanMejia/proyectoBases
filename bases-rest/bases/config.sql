@@ -10,7 +10,7 @@ CREATE TABLE users(
 
 insert into users (name, email) values ('juan', 'juan@putito.com'),('foxzi', 'foxzi@fox.com');
 
-
+//Json RegistrarTrabajador
 
 {
 	"telefono": 3106330913,
@@ -26,18 +26,19 @@ insert into users (name, email) values ('juan', 'juan@putito.com'),('foxzi', 'fo
 	"direccion": "ST_GeomFromText('POINT(-0.1257 51.508)',4326)"
 
 }
-
+//Json Registrar usuario
 {
 	"telefono": 3106430913,
 	"pass": "loco",
 	"email": "lobo@animal.com",
-	"tipo": "t",
+	"tipo": "u",
 	"name": "jonh",
 	"mpago" : "credito",
 	"recibo" : "/lalalae",
 	"direccion": "ST_GeomFromText('POINT(-0.1257 51.508)',4326)"
 
 }
+//Json registrar labor Trabajador
 {
 	"telefono": 3106330913,
 	"labor": 1,
