@@ -44,3 +44,47 @@ insert into users (name, email) values ('juan', 'juan@putito.com'),('foxzi', 'fo
 	"unidad": 300000,
 	"descripcion": "Lo hare bn deveras"
 }
+
+const { user, pass } =req.body;
+
+if(Number.isInteger(user)){
+	const response1 = await pool.query('select * from cuenta where telefono = $1',[user]);
+	if(response1.rowCount){
+		const password = response1.rows[0].password;
+		const valor = await bcrypt.compare(pass, password);
+		console.log(pass);
+		console.log(password);
+		console.log(valor);
+		if(valor){
+			res.send('exito');
+		}
+		else{
+			res.send('fracaso')
+		}
+	}
+	else{
+		res.send('no existe ese tel')
+	}
+
+}
+
+else{
+	const response1 = await pool.query('select * from cuenta where email = $1',[user]);
+	if(response1.rowCount){
+		const password = response1.rows[0].password;
+		const valor = await bcrypt.compare(pass, password);
+		console.log(pass);
+		console.log(password);
+		console.log(valor);
+		if(valor){
+			res.send('exito');
+		}
+		else{
+			res.send('fracaso')
+		}
+	}
+	else{
+		res.send('no existe ese email')
+	}
+
+}

@@ -1,16 +1,9 @@
-const { Pool } = require('pg');
-const bcrypt = require('bcryptjs');
-
-
-const pool = new Pool({
-    host: process.env.hostbd,
-    user: process.env.userbd,
-    password: process.env.passwordbd,
-    database: process.env.databasebd,
-});
-
+const { pool, bcrypt } = require('./bd.controller');
+const passport = require('passport');
 
 const getUsers = async (req,res) => {
+    console.log('1');
+    console.log(req.user);
     const response = await pool.query('select * from users');
     res.status(200).json(response.rows);
     console.log(response.rows);
@@ -70,52 +63,10 @@ const createCuentaTrabajador= async (req,res) => {
 
 };
 
-const postLogin= async (req,res) => {
-  const { user, pass } =req.body;
-
-  if(Number.isInteger(user)){
-    const response1 = await pool.query('select * from cuenta where telefono = $1',[user]);
-    if(response1.rowCount){
-      const password = response1.rows[0].password;
-      const valor = await bcrypt.compare(pass, password);
-      console.log(pass);
-      console.log(password);
-      console.log(valor);
-      if(valor){
-        res.send('exito');
-      }
-      else{
-        res.send('fracaso')
-      }
-    }
-    else{
-      res.send('no existe ese tel')
-    }
-
-  }
-
-  else{
-    const response1 = await pool.query('select * from cuenta where email = $1',[user]);
-    if(response1.rowCount){
-      const password = response1.rows[0].password;
-      const valor = await bcrypt.compare(pass, password);
-      console.log(pass);
-      console.log(password);
-      console.log(valor);
-      if(valor){
-        res.send('exito');
-      }
-      else{
-        res.send('fracaso')
-      }
-    }
-    else{
-      res.send('no existe ese email')
-    }
-
-  }
-
-};
+const postLogin= passport.authenticate('login',{
+  failureRedirect: '/users/2',
+  successRedirect: '/users/1'
+});
 
 const createCuentaUsuario= async (req,res) => {
   const { telefono, pass, tipo, email, name, mpago, recibo, direccion } = req.body;
