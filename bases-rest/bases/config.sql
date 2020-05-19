@@ -10,7 +10,9 @@ CREATE TABLE users(
 
 insert into users (name, email) values ('juan', 'juan@putito.com'),('foxzi', 'foxzi@fox.com');
 
-	//comando: npm i bcryptjs dotenv express express-session method-override passport passport-local pg
+	//comando: npm i bcryptjs dotenv express express-session method-override passport passport-local pg cors --save
+
+select nombre,estrellas,foto_perfil,telefono from trabajador join trabajador_labor on (trabajador_telefono = telefono) and (disponibilidad = true);
 
 //Json RegistrarTrabajador
 
@@ -47,6 +49,20 @@ insert into users (name, email) values ('juan', 'juan@putito.com'),('foxzi', 'fo
 	"unidad": 300000,
 	"descripcion": "Lo hare bn deveras"
 }
+
+select id_labor,nombre,estrellas,foto_perfil,unidad_labor,descripcion from verlaborestrabajadores group by id_labor,nombre,estrellas,foto_perfil,unidad_labor,descripcion,direccion having id_labor=1 order by st_distancesphere((select usuario.direccion from usuario where usuario.telefono=3106430914),direccion);
+
+//esta es import
+select id_labor,nombre,estrellas,foto_perfil,unidad_labor,descripcion from verlaborestrabajadores group by id_labor,nombre,estrellas,foto_perfil,unidad_labor,descripcion,direccion having id_labor=1 order by st_distancesphere((select usuario.direccion from usuario where usuario.telefono=3106430914),direccion);
+
+select st_distancesphere (p1.direccion,p2.direccion) from pruebas as p1, pruebas as p2 where p1.id = 1 and p2.id = 2;
+
+select nombre,estrellas,direccion, foto_perfil from trabajador_labor join trabajador on trabajador_telefono=telefono and disponibilidad=true;
+
+select nombre,estrellas,direccion, foto_perfil,id_labor,unidad_labor,descripcion from trabajador_labor join trabajador on trabajador_telefono=telefono and disponibilidad=true;
+
+ select * from verlaborestrabajadores group by id_labor order by st_distancesphere(select ubicacion from usuario where usuario.telefono=3106430914,trabajador.ubicacion) having id_labor=1;
+
 
 const { user, pass } =req.body;
 
@@ -91,3 +107,46 @@ else{
 	}
 
 }
+///////////////
+const getUsers = async (req,res) => {
+    console.log('1');
+    console.log(req.user);
+    const response = await pool.query('select * from users');
+    res.status(200).json(response.rows);
+    console.log(response.rows);
+};
+/////////////////////
+const getUsersByID = async (req,res) => {
+    const id = req.params.id;
+    const response = await pool.query('select * from users where id = $1',[id]);
+    res.json(response.rows[0].id);
+}
+//////////////////////
+const updateUsers= async (req,res) => {
+    const id = req.params.id;
+    const { name, email } = req.body;
+    const response = await pool.query('update users set name = $1, email = $2 where id = $3', [name, email, id]);
+    console.log(id, name, email);
+    res.send('user actualizado')
+};
+///////////////////////////////
+const deleteUsers= async (req,res) => {
+    const id = req.params.id;
+    const response = await pool.query('delete from users where id = $1', [id]);
+    console.log(response);
+    res.json(`User ${id} eliminado satisfactoriamente`);
+};
+///////////////////////
+const createUsers= async (req,res) => {
+  const { name, email } = req.body;
+
+  const response = await pool.query('insert into users (name, email) values ($1, $2)',[name, email]);
+  console.log(response);
+  res.json({
+      message: 'usuario agregado',
+      body: {
+          user: {name, email}
+      }
+  })
+
+};
