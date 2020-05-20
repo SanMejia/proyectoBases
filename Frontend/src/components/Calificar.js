@@ -1,0 +1,50 @@
+import React, {Component, Fragment} from 'react';
+
+class Calificar extends Component{
+
+    render(){
+
+        return(
+            <Fragment>
+            <head>
+                <meta charset="utf-8"/>
+                <title>Login para usuario</title>
+                <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
+                <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet"/>
+            </head>
+
+            <div class = "mande">
+            <h1>MANDE</h1>
+            <h2> CALIFICA EL SERVICIO</h2>
+
+            <div class="stars">
+            <form action="">
+                <input class="star star-5" id="star-5" type="radio" name="star"/>
+                <label class="star star-5" for="star-5"></label>
+                <input class="star star-4" id="star-4" type="radio" name="star"/>
+                <label class="star star-4" for="star-4"></label>
+                <input class="star star-3" id="star-3" type="radio" name="star"/>
+                <label class="star star-3" for="star-3"></label>
+                <input class="star star-2" id="star-2" type="radio" name="star"/>
+                <label class="star star-2" for="star-2"></label>
+                <input class="star star-1" id="star-1" type="radio" name="star"/>
+                <label class="star star-1" for="star-1"></label>
+            </form>
+            </div> 
+            <input type="submit" value="Enviar Calificacion" />
+            </div>
+
+            </Fragment>
+
+
+        );
+
+
+
+    }
+
+
+
+}
+
+export default Calificar;
