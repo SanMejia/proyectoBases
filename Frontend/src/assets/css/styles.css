@@ -106,7 +106,7 @@ body {
 
 .sign-box {
   width: 320px;
-  height: 420px;
+  height: 350px;
   background: #000;
   color: #fff;
   top: 50%;
@@ -381,7 +381,7 @@ body {
 
 .sign-box2 {
   width: 320px;
-  height: 700px;
+  height: 730px;
   background: #000;
   color: #fff;
   top: 50%;
@@ -420,6 +420,7 @@ body {
   font-size: 16px;
   display: block;
   position: relative;
+ 
 }
 
 .sign-box2 input[type="submit"] {
@@ -431,13 +432,19 @@ body {
   font-size: 18px;
   border-radius: 20px;
   margin: 10px 10px;
+  left: 60px;
+  position: relative;
+  
 }
+
+
 .sign-box2 input[type="submit"]:hover {
   cursor: pointer;
   background: #ffc107;
   color: #000;
 }
 .sign-box2 a {
+  display: block;
   text-decoration: none;
   font-size: 12px;
   line-height: 20px;
@@ -446,6 +453,26 @@ body {
 
 .sign-box2 a:hover {
   color: #fff;
+}
+
+.sign-box2 .formulario{
+  position: relative;
+  top: -50px;
+}
+
+.sign-box2 .btn {
+  position: relative;
+  top: -130px;
+  left: 85%;
+  background-color: transparent; 
+  border: none; 
+  color: white; 
+  padding: 10px 10px; 
+  font-size: 35px;
+  cursor: pointer; 
+}
+.sign-box2 .btn:hover {
+  background-color: RoyalBlue;
 }
 
 body {
@@ -459,7 +486,7 @@ body {
 
 .login-boxlabor {
   width: 420px;
-  height: 370px;
+  height: 420px;
   background: #000;
   color: #fff;
   top: 50%;
@@ -519,7 +546,7 @@ body {
 .login-boxlabor input[type="submit"] {
   border: none;
   outline: none;
-  width: 150px;
+  width: 100%;
   height: 40px;
   background: #b80f22;
   color: #fff;
@@ -528,6 +555,7 @@ body {
   position: relative;
   display: inline-block;
   margin:10px;
+ 
 }
 
 .login-boxlabor input[type="submit"]:hover {

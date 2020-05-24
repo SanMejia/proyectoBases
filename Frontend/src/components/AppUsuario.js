@@ -6,7 +6,7 @@ class AppUsuario extends Component {
 
         return (
             <Fragment>
-
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
             <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet"></link>
 
             <div className="mande-box">

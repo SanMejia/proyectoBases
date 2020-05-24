@@ -26,10 +26,11 @@ class AdicionarLabores extends Component {
                     {/*<!-- PASSWORD INPUT -->*/}
               <label for="Precio por Hora">Precio por Hora de dicha labor</label>
                     <input type="Text" placeholder="Ingrese el precio por hora, Ej: 100.000" />
-                        <input type="submit" value="Adicionar Labor" />
-                            <input type="submit" value="Finalizar" /> <br />
-
-                                <a href="#">Ayuda?</a>
+                        <input type="submit" value="Adicionar Labor" />                     
+            </form>
+            <form>
+            <input type="submit" value="Finalizar" /> <br />
+            <a href="#">Ayuda?</a>
             </form>
           </div>
 

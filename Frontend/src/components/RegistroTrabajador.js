@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React,{Component, Fragment} from 'react';
 import axios from 'axios'
 
 class RegistroTrabajador extends Component{
@@ -36,15 +36,35 @@ class RegistroTrabajador extends Component{
          this.setState({noTarjeta: e.target.value})
        }
 
+
+       onSubmit = async e => {
+        e.preventDefault();
+        const respuesta = await axios.post('http://localhost:4000/cuenta/creart', {"telefono": this.state.telefono,
+        "pass": this.state.password,
+        "email": this.state.email,
+        "tipo": "t",
+        "cc": 11111111,
+        "name": this.state.nombreTrabajador,
+        "estrellas" : 4.5,
+        "disponible" : true,
+        "perfil": "/casita",
+        "documento": "/casita2",
+        "direccion": "ST_GeomFromText('POINT(-0.1257 51.508)',4326)"})
+         console.log(respuesta);
+     }
      
     render(){
 
         return(
+            <Fragment>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+            <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet"></link>
 
             <div className="sign-box2">
                 <h1>MANDE</h1>
                 <h2>Registro Trabajador</h2>
-            <form>
+                <button className="btn"><i className="fa fa-home"></i></button>
+            <form class="formulario" onSubmit={this.onSubmit}>
                 {/*<!-- NOMBRE -->*/}
             <label for="Nombre">Nombre:</label>
                 <input type="text" placeholder="Ingrese Nombre de Usuario" onChange={this.onChangeNombre} />
@@ -72,15 +92,15 @@ class RegistroTrabajador extends Component{
 
         
             <input class="Registrarme" type="submit" value="Registrarme"  />
-            <input class="Cancelar" type="submit" value="Cancelar" />
-            <a href="#">Ayuda??</a><br />
+            
+            
         </form>
         </div>
-
+        </Fragment>
 
         );
 
-
+       
 
     }
 
