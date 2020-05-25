@@ -22,14 +22,14 @@ class LaborActualTrabajador extends Component{
             
             {/*<!-- NOMBRE -->*/}  
             <label for="Nombre">Nombre:</label> <br/>
-            <input type="text" placeholder="Aqui va el Nombre" />
+            <input type="text" placeholder="Aqui va el Nombre" disabled/>
              {/*<!-- TELEFONO -->*/}
             <label for="Telefono">Telefono:</label> <br/>
-            <input type="text" placeholder="Aqui va el Telefono" />
+            <input type="text" placeholder="Aqui va el Telefono" disabled/>
              {/*<!-- EMAIL -->*/}
             <label for="Email">Email:</label> <br/>
-            <input type="text" placeholder="Aqui va el Email" />
-            <input className= "FinalizarLabor" type="submit" value="Finalizar Labor" />   
+            <input type="text" placeholder="Aqui va el Email" disabled />
+            <input className= "FinalizarLabor" type="submit" value="Finalizar Labor"  />   
         </form>   
         
 

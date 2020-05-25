@@ -1,6 +1,18 @@
 import React,{Component} from 'react';
+import axios from 'axios'
+import ReactDOM from 'react-dom'
 
 class ServicioActualUsuario extends Component{
+
+   state = {
+    usuarioActual: ''
+   }
+
+   componentDidMount() {
+    const res = axios.get('http://localhost:4000/usuarioActual/obteneri/3333');
+    this.setState({usuarioActual: res.data});
+    
+   } 
 
     render(){
 
@@ -22,13 +34,13 @@ class ServicioActualUsuario extends Component{
                 
                 {/*<!-- NOMBRE -->*/}
                 <label for="Nombre">Nombre:</label> <br/>
-                <input type="text" placeholder="Aqui va el Nombre" />
+                <input type="text" placeholder= "" disabled/>
                 {/*<!-- TELEFONO -->*/}
                 <label for="Telefono">Telefono:</label> <br/>
-                <input type="text" placeholder="Aqui va el Telefono" />
+                <input type="text" placeholder="Aqui va el Telefono" disabled/>
                 {/*<!-- LABOR -->*/}
                 <label for="Labor">Labor a Realizar:</label> <br/>
-                <input type="text" placeholder="Aqui va la Labor" />
+                <input type="text" placeholder="Aqui va la Labor" disabled/>
                 <input className= "Pagar" type="submit" value="Pagar Labor" />   
               </form>   
               
