@@ -63,7 +63,7 @@ class RegistroUsuario extends Component{
             <h1>MANDE</h1>
             <h2>Registro Usuario</h2>
             <button className="btn"><i className="fa fa-home"></i></button>
-            <form class="formulario" onSubmit={this.onSubmit}>
+            <form class="formulario" onSubmit={this.onSubmit} encType="multipart/form-data" action="/ReciboServicios">
               {/*<!-- NOMBRE -->*/}
               <label for="Nombre">Nombre:</label>
               <input type="text" placeholder="Ingrese Nombre de Usuario" onChange={this.onChangeUsuario} />
@@ -84,9 +84,10 @@ class RegistroUsuario extends Component{
               <input type="text" placeholder="Ingrese No Tarjeta"onChange={this.onChangeTarjeta} />
       
                {/*<!-- SERVICIOS -->*/}
+              
               <label for="Recibo Servicios">Recibo Servicios:</label>
-              <a href="#">Ingresar Recibo</a><br />
-            
+              <input type="file" placeholder="Ingrese recibo" accept=".jpg , .png" />
+              
               <input class="Registrarme" type="submit" value="Registrarme" id="boton"/>
               <a href="#">Ayuda??</a><br />
             </form>

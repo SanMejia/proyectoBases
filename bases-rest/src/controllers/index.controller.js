@@ -51,7 +51,12 @@ const getUsuarioByTel = async (req,res) => {
     res.status(200).json(response.rows);
 
 };
+/// Get UsuarioActual
+const getUsuarioActualByTel = async (req,res) => {
+    const response = await pool.query('select * from usuarioActual where telefono = $1',[req.params.tel]);
+    res.status(200).json(response.rows);
 
+};
 ///Gets Labores
 
 const getLaborById = async (req,res) => {
@@ -113,8 +118,8 @@ const createCuentaUsuario= async (req,res) => {
   const response2 = await pool.query(sql ,
                   [name, telefono, mpago, recibo]);
   const response3 = await pool.query('insert into cuenta_usuario values ($1, $1)',[telefono]);
+  console.log(req.body);
   console.log(response1);
-
   console.log(response2);
   console.log(response3);
   res.json({
@@ -159,5 +164,7 @@ module.exports = {
     createCuentaTrabajador,
     createCuentaUsuario,
     createLaborTrabajador,
+    getUsuarioByTel,
+    getUsuarioActualByTel,
     postLogin
 }
