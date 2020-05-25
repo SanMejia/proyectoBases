@@ -12,18 +12,19 @@ import ServicioActualUsuario from './components/ServicioActualUsuario';
 import Calificar from './components/Calificar';
 import Error from './components/Error';
 import Inicio from './components/Inicio';
- 
+import MapaTrabajador from './components/MapaTrabajador';
+
 class Rutas extends Component {
 
     render() {
 
         return (
-           
+
             <BrowserRouter>
               <Switch>
 
                 <Route exact path= "/" component= {Inicio} />
-                <Route exact path= "/Tipo_Registro" component= {TipoRegistro} />  
+                <Route exact path= "/Tipo_Registro" component= {TipoRegistro} />
                 <Route exact path= "/Login_Usuario" component= {LoginUsuario} />
                 <Route exact path= "/Registro_Usuario" component= {RegistroUsuario} />
                 <Route exact path= "/Registro_Trabajador" component= {RegistroTrabajador} />
@@ -33,14 +34,15 @@ class Rutas extends Component {
                 <Route exact path= "/Labor_actual" component= {LaborActualTrabajador} />
                 <Route exact path= "/Servicio_actual" component= {ServicioActualUsuario} />
                 <Route exact path= "/Calificar" component= {Calificar} />
+                <Route exact path= "/Mapa" component= {MapaTrabajador} />
                 <Route component= {Error} />
 
               </Switch>
-                    
+
             </BrowserRouter>
-              
-             
-            
+
+
+
 
         );
 
