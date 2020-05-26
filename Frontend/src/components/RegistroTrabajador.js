@@ -74,7 +74,11 @@ class RegistroTrabajador extends Component{
             <div className="sign-box2">
                 <h1>MANDE</h1>
                 <h2>Registro Trabajador</h2>
-                <button className="btn" onClick= {console.log("holaaaaa")}><i className="fa fa-home"></i> </button>
+
+                <Link className="nav-link" to={"/"} >
+               <button className="btn"><i className="fa fa-home"></i></button>
+               </Link>
+
             <form class="formulario" onSubmit={this.onSubmit}>
                 {/*<!-- NOMBRE -->*/}
             <label for="Nombre">Nombre:</label>
