@@ -179,6 +179,7 @@ module.exports = {
     createLaborTrabajador,
     getUsuarioByTel,
     getUsuarioActualByTel,
+    getTrabajadorActualByTel,
     postLogin,
     success,
     fail

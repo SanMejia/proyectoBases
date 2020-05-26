@@ -1,6 +1,13 @@
 import React, { Component,Fragment } from 'react';
-
+import Labores from './Labores';
 class AppUsuario extends Component {
+
+    state = {
+
+        selectValue: ' ',
+
+
+    };
 
     render() {
 
@@ -18,35 +25,19 @@ class AppUsuario extends Component {
 
                     <h3>Busqueda de labores</h3>
 
-                    <form>
-                        {/*<-- USERNAME INPUT -->*/}
-                    <label for="Seleccione una labor">Seleccione una labor :</label>
-                        <select name="Labores">
-
-                            <option>Perra</option>
-
-                            <option>Puta</option>
-
-                            <option>Vagamunda</option>
-
-                        </select>
-
-
-                    </form>
+                   
                     <form>
                         <label className="categorias1" for="Ordenar por categorias :">Ordenar por Categorias :</label>
-                        <select className="categorias2" name="Orden">
+                        <select className="categorias2" id="Orden" defaultValue={this.state.selectValue} 
+                         onChange={this.handleChange}>
 
-                            <option>Categoria</option>
+                            <option value="Cercanos">Más cercanos</option>
 
-                            <option>Precio</option>
-
-                            <option>Pollas en vinagre</option>
+                            <option value ="Precio">Menor precio</option>
 
                         </select>
                         <input className="solicitar" type="submit" value="Solicitar" />
-                            <textarea name="textarea" rows="10" cols="50">Aqui estaran las labores listadas</textarea>
-
+                            <Labores labor_id={this.state.selectValue}/>
                             <label className="descripcion" for="Descripcion de la Labor">Descripcion de la Labor :</label>
                             <textarea name="textarea" rows="4" cols="50">Escribe la descripcion aqui</textarea>
         

@@ -10,19 +10,17 @@ const style = {
 
 class LaborActualTrabajador extends Component{
 
-    constructor() {
-        super();
-        this.state = {
+    
+        
+        state = {
           showingInfoWindow: false,
           activeMarker: {},
           selectedPlace: {},
           mapLoaded: false,
           usuarioActual: []
         };
-        this.handleMapIdle = this.handleMapIdle.bind(this);
-        this.onMarkerClick = this.onMarkerClick.bind(this);
-        this.onClose = this.onClose.bind(this);
-      }
+        
+      
     
       onMarkerClick = (props, marker, e) => {
         this.setState(prevState => ({
@@ -54,7 +52,7 @@ class LaborActualTrabajador extends Component{
     
         async componentWillMount() {
         const res = await axios.get('http://localhost:4000/usuarioActual/obteneri/3333');
-        this.setState({usuarioActual: res.data[0]});
+        await this.setState({usuarioActual: res.data[0]});
         console.log("estoy vivooooo")
        } 
        onSubmit = async (e) => {
