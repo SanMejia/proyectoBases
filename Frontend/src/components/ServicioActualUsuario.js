@@ -5,13 +5,12 @@ import ReactDOM from 'react-dom'
 class ServicioActualUsuario extends Component{
 
    state = {
-    usuarioActual: ''
+    trabajadorActual: []
    }
 
-   componentDidMount() {
-    const res = axios.get('http://localhost:4000/usuarioActual/obteneri/3333');
-    this.setState({usuarioActual: res.data});
-    
+    async componentWillMount() {
+    const res = await axios.get('http://localhost:4000/trabajadorActual/obteneri/111111');
+    this.setState({trabajadorActual: res.data[0]});
    } 
 
     render(){
@@ -21,10 +20,8 @@ class ServicioActualUsuario extends Component{
             <div className="mande-boxServicio">
             <h1>MANDE</h1>
             <p className = "subtitulo">Detalles del Trabajador</p>
-            
             <input className="Ayuda" type="submit" value="Ayuda?" />
-        
-              <h3>Foto del trabajador</h3>
+            <h3>Foto del trabajador</h3>
            
               <form className ="foto">
                 {/*<!-- AQUI IRA LA FOTO DEL TRABAJADOR -->*/} 
@@ -34,13 +31,13 @@ class ServicioActualUsuario extends Component{
                 
                 {/*<!-- NOMBRE -->*/}
                 <label for="Nombre">Nombre:</label> <br/>
-                <input type="text" placeholder= "" disabled/>
+                <input type="text" placeholder= "" disabled  value = {this.state.trabajadorActual.nombre}/>
                 {/*<!-- TELEFONO -->*/}
                 <label for="Telefono">Telefono:</label> <br/>
-                <input type="text" placeholder="Aqui va el Telefono" disabled/>
+                <input type="text" placeholder="Aqui va el Telefono" disabled value = {this.state.trabajadorActual.telefono}/>
                 {/*<!-- LABOR -->*/}
                 <label for="Labor">Labor a Realizar:</label> <br/>
-                <input type="text" placeholder="Aqui va la Labor" disabled/>
+                <input type="text" placeholder="Aqui va la Labor" disabled value = {this.state.trabajadorActual.nombre_labor}/>
                 <input className= "Pagar" type="submit" value="Pagar Labor" />   
               </form>   
               

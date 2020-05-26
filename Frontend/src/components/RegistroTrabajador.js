@@ -3,7 +3,7 @@ import axios from 'axios'
 
 class RegistroTrabajador extends Component{
 
-
+    
     state = {
         nombreTrabajador: '',
         password: '',
@@ -13,7 +13,7 @@ class RegistroTrabajador extends Component{
         noTarjeta: ''
     }
 
-    onChangeNombre = (e) => {
+      onChangeNombre = (e) => {
         this.setState({nombreTrabajador: e.target.value})
        }
        onChangeContraseña = (e) => {
@@ -51,6 +51,17 @@ class RegistroTrabajador extends Component{
         "documento": "/casita2",
         "direccion": "ST_GeomFromText('POINT(-0.1257 51.508)',4326)"})
          console.log(respuesta);
+
+         if(this.state.nombreTrabajador === '' | 
+         this.state.password === '' |
+         this.state.telefono === '' |
+         this.state.direccion === '' |
+         this.state.email === '' |
+         this.state.noTarjeta === ''){console.log("1")
+           }
+           else{
+            document.location.href = "http://localhost:3000/Trabajador";
+           }
      }
      
     render(){
@@ -63,7 +74,7 @@ class RegistroTrabajador extends Component{
             <div className="sign-box2">
                 <h1>MANDE</h1>
                 <h2>Registro Trabajador</h2>
-                <button className="btn"><i className="fa fa-home"></i></button>
+                <button className="btn" onClick= {console.log("holaaaaa")}><i className="fa fa-home"></i> </button>
             <form class="formulario" onSubmit={this.onSubmit}>
                 {/*<!-- NOMBRE -->*/}
             <label for="Nombre">Nombre:</label>

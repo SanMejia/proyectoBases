@@ -53,7 +53,13 @@ const getUsuarioByTel = async (req,res) => {
 };
 /// Get UsuarioActual
 const getUsuarioActualByTel = async (req,res) => {
-    const response = await pool.query('select * from usuarioActual where telefono = $1',[req.params.tel]);
+    const response = await pool.query('select * from usuarioActual where trabajador_telefono = $1',[req.params.tel]);
+    res.status(200).json(response.rows);
+
+};
+/// Get trabajadorActual
+const getTrabajadorActualByTel = async (req,res) => {
+    const response = await pool.query('select * from trabajadorActual where usuario_telefono = $1',[req.params.tel]);
     res.status(200).json(response.rows);
 
 };
@@ -166,5 +172,6 @@ module.exports = {
     createLaborTrabajador,
     getUsuarioByTel,
     getUsuarioActualByTel,
+    getTrabajadorActualByTel,
     postLogin
 }

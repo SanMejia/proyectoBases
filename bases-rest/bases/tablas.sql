@@ -175,3 +175,4 @@ ALTER TABLE Cuenta_Usuario ADD CONSTRAINT datos_usuario_u FOREIGN KEY (usuario_t
 create view verInfoTrabajador as select nombre,Estrellas,Disponibilidad, Telefono, foto_perfil from trabajador;
 create view verLaboresTrabajadores as select nombre,estrellas,direccion, foto_perfil,id_labor,unidad_labor,descripcion from trabajador_labor join trabajador on trabajador_telefono=telefono and disponibilidad=true;
 create view usuarioActual as select nombre, telefono, trabajador_telefono from (usuario_labor INNER JOIN usuario ON usuario_labor.usuario_telefono=usuario.telefono);
+create view trabajadorActual as select nombre, telefono, nombre_labor, usuario_telefono FROM (trabajador INNER JOIN (usuario_labor INNER JOIN labor ON usuario_labor.id_labor=labor.id_labor)ON trabajador.telefono=trabajador_telefono);

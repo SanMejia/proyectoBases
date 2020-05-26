@@ -5,7 +5,7 @@ const router = Router();//crea rutas url y las vincula con las funciones ya crea
 
 //
 const {  getCuenta,  getCuentaByTel, createCuentaTrabajador, createCuentaUsuario,
-   createLaborTrabajador,  getUsuarioByTel, getUsuarioActualByTel ,postLogin } = require('../controllers/index.controller')
+   createLaborTrabajador,  getUsuarioByTel, getUsuarioActualByTel, getTrabajadorActualByTel ,postLogin } = require('../controllers/index.controller')
 
 
 router.get('/cuenta',getCuenta);
@@ -13,8 +13,9 @@ router.get('/cuenta/:id',getCuentaByTel);
 router.post('/cuenta/creart', createCuentaTrabajador);
 router.post('/cuenta/crearu', createCuentaUsuario);
 router.post('/trabajador/labor/crear',createLaborTrabajador);
-router.post('/usuario/obteneri/:tel', getUsuarioByTel);
-router.post('/usuarioActual/obteneri/:tel', getUsuarioActualByTel)
+router.get('/usuario/obteneri/:tel', getUsuarioByTel);
+router.get('/usuarioActual/obteneri/:tel', getUsuarioActualByTel);
+router.get('/trabajadorActual/obteneri/:tel', getTrabajadorActualByTel);
 router.post('/cuenta/login',postLogin);
 
 
