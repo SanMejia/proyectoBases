@@ -13,7 +13,8 @@ class RegistroUsuario extends Component{
      telefono: '',
      direccion: '',
      email: '',
-     noTarjeta: ''
+     noTarjeta: '',
+     selectedFile: null
     }
 
     onChangeUsuario = (e) => {
@@ -39,7 +40,16 @@ class RegistroUsuario extends Component{
       this.setState({noTarjeta: e.target.value})
     }
 
+    onChangeReciboServicios = (e) => {
+      this.setState({
+      selectedFile: e.target.files[0],
+      loaded: 0,
+    })
+
+    }
+
     onSubmit = async e => {
+
       e.preventDefault();
        const respuesta = await axios.post('http://localhost:4000/cuenta/crearu', {"telefono": this.state.telefono,
         "pass": this.state.password,
@@ -50,6 +60,12 @@ class RegistroUsuario extends Component{
         "recibo" : "/lalalae",
        "direccion": "ST_GeomFromText('POINT(-0.1257 51.508)',4326)"})
         console.log(respuesta);
+        const data = new FormData();
+        data.append('file', this.state.selectedFile);
+        const img = await axios.post("http://localhost:4000/upload", data, {
+      // receive two    parameter endpoint url ,form data
+        });
+        console.log(img);
     }
 
     render(){
@@ -78,16 +94,16 @@ class RegistroUsuario extends Component{
               <input type="text" placeholder="Ingrese Direccion" onChange={this.onChangeDireccion}/>
                {/*<!-- EMAIL -->*/}
               <label for="Email">Email:</label>
-              <input type="text" placeholder="Ingrese Email" onChange={this.onChangeEmail}/> 
+              <input type="text" placeholder="Ingrese Email" onChange={this.onChangeEmail}/>
                {/*<!-- TARJETA -->*/}
               <label for="NoTarjeta">NoTarjeta:</label>
               <input type="text" placeholder="Ingrese No Tarjeta"onChange={this.onChangeTarjeta} />
-      
+
                {/*<!-- SERVICIOS -->*/}
-              
-              <label for="Recibo Servicios">Recibo Servicios:</label>
-              <input type="file" placeholder="Ingrese recibo" accept=".jpg , .png" />
-              
+
+              <label for="ReciboServicios">ReciboServicios:</label>
+              <input type="file" placeholder="Ingrese recibo" accept=".jpg , .png" onChange={this.onChangeReciboServicios}/>
+
               <input class="Registrarme" type="submit" value="Registrarme" id="boton"/>
               <a href="#">Ayuda??</a><br />
             </form>

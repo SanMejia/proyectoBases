@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import glo from './glo.js';
+
+
 
 
 class TipoRegistro extends Component {
 
     render() {
+      console.log(glo.log)
 
         return (
 
@@ -14,7 +18,7 @@ class TipoRegistro extends Component {
 
                 <form>
                     {/*<!-- REGISTRAR COMO USUARIO -->*/}
-                    
+
                     <label for="Ingresar">Registrar como Usuario</label>
                     <Link className="nav-link" to={"/Registro_Usuario"}>
                         <input type="submit" value="Registrarse" />

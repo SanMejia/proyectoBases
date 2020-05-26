@@ -150,10 +150,17 @@ const createLaborTrabajador= async (req,res) => {
 
 ///Crear sesion usuario(login)
 
-const postLogin= passport.authenticate('login',{
-  failureRedirect: '/users/2',
-  successRedirect: '/users/1'
-});
+const postLogin= passport.authenticate('login');
+
+const success = async (req,res) => {
+
+    res.send(req.user);
+
+};
+
+const fail = async (req,res) => {
+  res.send("fallo");
+};
 
 
 module.exports = {
@@ -166,5 +173,7 @@ module.exports = {
     createLaborTrabajador,
     getUsuarioByTel,
     getUsuarioActualByTel,
-    postLogin
+    postLogin,
+    success,
+    fail
 }

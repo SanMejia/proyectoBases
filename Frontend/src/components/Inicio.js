@@ -1,11 +1,16 @@
 import React, { Component, Fragment } from 'react';
+import glo from './glo.js';
 import avatar from '../assets/images/mande.jpg';
 import { Link } from 'react-router-dom';
+
+
+
 
 class Inicio extends Component {
 
 
     render() {
+      console.log(glo.log);
 
         return (
             <Fragment>

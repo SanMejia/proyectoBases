@@ -150,3 +150,76 @@ const createUsers= async (req,res) => {
   })
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React, {Component, Fragment} from 'react';
+import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
+
+
+class LaborActualTrabajador extends Component{
+  state = {
+    showingInfoWindow: true,
+    activeMarker: {},
+    selectedPlace: {},
+  };
+
+  onMarkerClick = (props, marker, e) =>
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+
+  onMapClicked = (props) => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      })
+    }
+  };
+
+    render(){
+
+        return(
+
+        <Fragment>
+
+        <Map
+          google={this.props.google}
+          zoom={17}
+          initialCenter={{ lat: 3.498164, lng: -76.491464}}
+          >
+          <Marker
+          position={{ lat: 3.498164, lng: -76.491464}}
+          name='casa'
+           />
+           <InfoWindow
+          marker='casa'
+          visible={this.state.showingInfoWindow}>
+            <div>
+              <strong>Tu sitio de trabajo</strong>
+            </div>
+        </InfoWindow>
+        </Map>
+
+        </Fragment>
+        );
+    }
+}
+
+export default GoogleApiWrapper({
+  apiKey: ('AIzaSyAArwzjSXp89P_0IQVObJ6d1GVNfneRi-I')
+})(LaborActualTrabajador)
