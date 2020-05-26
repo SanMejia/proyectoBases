@@ -61,14 +61,13 @@ class RegistroUsuario extends Component{
         "recibo" : "/lalalae",
        "direccion": "ST_GeomFromText('POINT(-0.1257 51.508)',4326)"})
         console.log(respuesta);
-<<<<<<< HEAD
         const data = new FormData();
         data.append('file', this.state.selectedFile);
         const img = await axios.post("http://localhost:4000/upload", data, {
       // receive two    parameter endpoint url ,form data
         });
         console.log(img);
-=======
+        
         if(this.state.nombreUsuario === '' | 
            this.state.password === '' |
            this.state.telefono === '' |
@@ -79,7 +78,6 @@ class RegistroUsuario extends Component{
            else{
             document.location.href = "http://localhost:3000/Usuario";
            }
->>>>>>> ab1687eb87e0e056f6fe87162ef1eb1e03b9efdf
     }
 
     render(){
