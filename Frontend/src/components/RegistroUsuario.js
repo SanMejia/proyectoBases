@@ -1,6 +1,7 @@
 import React,{Component, Fragment} from 'react';
 import TipoRegistro from './TipoRegistro';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 
 
@@ -60,12 +61,25 @@ class RegistroUsuario extends Component{
         "recibo" : "/lalalae",
        "direccion": "ST_GeomFromText('POINT(-0.1257 51.508)',4326)"})
         console.log(respuesta);
+<<<<<<< HEAD
         const data = new FormData();
         data.append('file', this.state.selectedFile);
         const img = await axios.post("http://localhost:4000/upload", data, {
       // receive two    parameter endpoint url ,form data
         });
         console.log(img);
+=======
+        if(this.state.nombreUsuario === '' | 
+           this.state.password === '' |
+           this.state.telefono === '' |
+           this.state.direccion === '' |
+           this.state.email === '' |
+           this.state.noTarjeta === '' ){console.log("1")
+           }
+           else{
+            document.location.href = "http://localhost:3000/Usuario";
+           }
+>>>>>>> ab1687eb87e0e056f6fe87162ef1eb1e03b9efdf
     }
 
     render(){
@@ -77,8 +91,11 @@ class RegistroUsuario extends Component{
 
             <div class="sign-box2">
             <h1>MANDE</h1>
-            <h2>Registro Usuario</h2>
+            <h2>Registro Usuario</h2> 
+            <Link className="nav-link" to={"/"} >
             <button className="btn"><i className="fa fa-home"></i></button>
+            </Link>
+            
             <form class="formulario" onSubmit={this.onSubmit} encType="multipart/form-data" action="/ReciboServicios">
               {/*<!-- NOMBRE -->*/}
               <label for="Nombre">Nombre:</label>

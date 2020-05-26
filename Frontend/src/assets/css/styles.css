@@ -1027,7 +1027,11 @@ body {
   margin:10px;
    
 }
-
+.mande input[type="submit"]:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
 
 .mande div.stars {
   position: relative;
