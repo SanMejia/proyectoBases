@@ -6,4 +6,4 @@ El presente repositorio es usado para manejar los archivos del proyecto.
 
 - Jonathan Pérez Castor
 - Juan David Delgado Rubiano
-- Santiago Mejia Martinez (El panita)
+- Santiago Mejia Martinez 
