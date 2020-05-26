@@ -11,7 +11,15 @@ class LaborActualTrabajador extends Component{
         const res = await axios.get('http://localhost:4000/usuarioActual/obteneri/3333');
         this.setState({usuarioActual: res.data[0]});
        } 
-
+       onSubmit = async (e) => {
+        e.preventDefault();
+       if(false){console.log("1")
+           }
+           else{
+            document.location.href = "http://localhost:3000/Trabajador";
+           }
+       }
+    
     render(){
 
         return(
@@ -28,7 +36,7 @@ class LaborActualTrabajador extends Component{
             {/*<!-- AQUI IRA EL MAPA -->*/}  
         </form>
         <h3>Datos del Cliente:</h3>
-        <form >
+        <form onSubmit = {this.onSubmit} >
             
             {/*<!-- NOMBRE -->*/}  
             <label for="Nombre">Nombre:</label> <br/>

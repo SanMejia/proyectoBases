@@ -13,6 +13,15 @@ class ServicioActualUsuario extends Component{
     this.setState({trabajadorActual: res.data[0]});
    } 
 
+   onSubmit = async (e) => {
+    e.preventDefault();
+    if(false){console.log("1")
+           }
+           else{
+            document.location.href = "http://localhost:3000/Usuario";
+           }
+   }
+
     render(){
 
         return(
@@ -27,7 +36,7 @@ class ServicioActualUsuario extends Component{
                 {/*<!-- AQUI IRA LA FOTO DEL TRABAJADOR -->*/} 
               </form>
               <h3>Datos del Trabajador:</h3>
-              <form >
+              <form onSubmit = {this.onSubmit}>
                 
                 {/*<!-- NOMBRE -->*/}
                 <label for="Nombre">Nombre:</label> <br/>
